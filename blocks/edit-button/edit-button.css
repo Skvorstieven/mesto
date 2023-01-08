@@ -9,8 +9,16 @@
   padding: 0;
   cursor: pointer;
   grid-area: edit-button;
+  display: flex;
 }
 
 .edit-button:hover {
   opacity: 0.6;
+}
+
+@media screen and (max-width: 580px) {
+  .edit-button {
+    height: 18px;
+    width: 18px;
+  }
 }

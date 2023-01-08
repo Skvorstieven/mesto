@@ -8,8 +8,22 @@
   margin: 0;
   padding: 0;
   cursor: pointer;
+  display: flex;
 }
 
 .add-button:hover {
   opacity: 0.6;
+}
+
+@media screen and (max-width: 879px) {
+  .add-button {
+    width: 581px;
+    margin-top: 36px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .add-button {
+    width: 282px;
+  }
 }

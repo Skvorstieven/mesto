@@ -3,3 +3,10 @@
   height: 10px;
   margin: auto;
 }
+
+@media screen and (max-width: 580px) {
+  .edit-button__image {
+    height: 7.5px;
+    width: 7.5px;
+  }
+}

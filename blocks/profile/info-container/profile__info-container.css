@@ -4,6 +4,17 @@
   grid-template-areas:
   'avatar title edit-button'
   'avatar subtitle .';
-  align-items: end;
+  align-items: center;
   row-gap: 16px;
+}
+
+@media screen and (max-width: 580px) {
+  .profile__info-container {
+    grid-template-areas:
+    'avatar avatar'
+    'title edit-button'
+    'subtitle subtitle';
+    justify-items: center;
+    row-gap: 0;
+  }
 }
