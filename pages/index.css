@@ -30,3 +30,13 @@
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/copyright/footer__copyright.css);
+
+@import url(../blocks/edit-profile-popup/edit-profile-popup.css);
+@import url(../blocks/edit-profile-popup/_opened/edit-profile-popup_opened.css);
+@import url(../blocks/edit-profile-popup/container/edit-profile-popup__container.css);
+@import url(../blocks/exit-button/exit-button.css);
+@import url(../blocks/exit-button/image/exit-button__image.css);
+@import url(../blocks/edit-profile-popup/form/edit-profile-popup__form.css);
+@import url(../blocks/edit-profile-popup/title/edit-profile-popup__title.css);
+@import url(../blocks/edit-profile-popup/input/edit-profile-popup__input.css);
+@import url(../blocks/edit-profile-popup/submit/edit-profile-popup__submit.css);

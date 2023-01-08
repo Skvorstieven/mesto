@@ -1,0 +1,21 @@
+.edit-profile-popup__submit {
+  width: 358px;
+  height: 50px;
+  background: #000000;
+  border-radius: 2px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.5s;
+  margin: 0 0 37px;
+  padding: 0;
+}
+
+.edit-profile-popup__submit:hover {
+  opacity: 0.8;
+}

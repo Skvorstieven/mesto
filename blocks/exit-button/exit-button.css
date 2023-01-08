@@ -1,0 +1,17 @@
+.exit-button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  transition: all 0.5s;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+}
+
+.exit-button:hover {
+  opacity: 0.6;
+}

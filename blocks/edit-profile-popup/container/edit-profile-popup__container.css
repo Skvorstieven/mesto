@@ -1,0 +1,7 @@
+.edit-profile-popup__container {
+max-width: 430px;
+max-height: 330px;
+border-radius: 10px;
+background-color: #ffffff;
+position: relative;
+}
