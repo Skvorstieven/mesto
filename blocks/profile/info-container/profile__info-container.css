@@ -1,0 +1,9 @@
+.profile__info-container {
+  display: grid;
+  grid-area: info-container;
+  grid-template-areas:
+  'avatar title edit-button'
+  'avatar subtitle .';
+  align-items: end;
+  row-gap: 16px;
+}

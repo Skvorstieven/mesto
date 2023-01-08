@@ -1,11 +1,9 @@
-.header {
+.content {
   width: 880px;
-  margin: 45px 0 40px;
-  padding: 0;
 }
 
 @media screen and (max-width: 880px) {
-  .header {
+  .content {
     width: 100%;
   }
 }

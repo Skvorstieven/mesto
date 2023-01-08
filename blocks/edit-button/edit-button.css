@@ -1,0 +1,16 @@
+.edit-button {
+  height: 24px;
+  width: 24px;
+  border: 1px solid #FFFFFF;
+  border-radius: 0%;
+  background: none;
+  transition: all 0.5s;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  grid-area: edit-button;
+}
+
+.edit-button:hover {
+  opacity: 0.6;
+}
