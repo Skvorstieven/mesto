@@ -18,3 +18,12 @@
 @import url(../blocks/edit-button/image/edit-button__image.css);
 @import url(../blocks/add-button/add-button.css);
 @import url(../blocks/add-button/image/add-button__image.css);
+
+@import url(../blocks/elements/elements.css);
+@import url(../blocks/elements/items/elements__items.css);
+@import url(../blocks/elements/item/elements__item.css);
+@import url(../blocks/elements/photo/elements__photo.css);
+@import url(../blocks/elements/text-container/elements__text-container.css);
+@import url(../blocks/elements/title/elements__title.css);
+@import url(../blocks/like-button/like-button.css);
+@import url(../blocks/like-button/image/like-button__image.css);
