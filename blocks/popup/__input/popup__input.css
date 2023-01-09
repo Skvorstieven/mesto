@@ -1,4 +1,4 @@
-.edit-profile-popup__input {
+.popup__input {
   width: 100%;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;
@@ -8,10 +8,16 @@
   color: #000000;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  margin: 0 0 30px;
-  padding: 0;
+  margin: 0 0 28px;
+  padding: 0 0 9px;
 }
 
-.edit-profile-popup__input:last-of-type {
-  margin: 0 0 48px;
+.popup__input:last-of-type {
+  margin: 0 0 49px;
+}
+
+@media screen and (max-width: 580px) {
+  .popup__input:last-of-type {
+    margin: 0 0 47px;
+  }
 }

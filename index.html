@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesto</title>
+    <title lang="en">Mesto</title>
     <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png">
@@ -13,21 +13,20 @@
 <body class="page">
 
   <header class="header">
-    <img src="./images/logo/logo_white.svg" alt="Место Россия" class="logo">
-    <div class="header-line"></div>
+    <img src="./images/logo/logo_white.svg" alt="Место Россия" class="header__logo">
   </header>
 
   <main class="content">
 
     <section class="profile">
       <div class="profile__info-container">
-        <img src="./images/profile/kusto.jpg" alt="" class="profile__avatar">
+        <img src="./images/profile/kusto.jpg" alt="Аватар пользователя" class="profile__avatar">
         <h1 class="profile__title">Жак-Ив Кусто</h1>
-        <button type="button" class="edit-button"><img src="./images/buttons/edit_button.svg" alt="Кнопка редактирования профиля" class="edit-button__image"></button>
+        <button type="button" class="button button_type_edit"></button>
         <p class="profile__subtitle">Исследователь океана</p>
       </div>
 
-      <button type="button" class="add-button"><img src="./images/buttons/add_button.svg" alt="Кнопка добавления нового элемента" class="add-button__image"></button>
+      <button type="button" class="button button_type_add"></button>
     </section>
 
     <section class="elements">
@@ -38,7 +37,7 @@
           <img src="./images/elements/elbrus.jpg" alt="Гора Эльбрус" class="elements__photo">
           <div class="elements__text-container">
             <h2 class="elements__title">Гора Эльбрус</h2>
-            <button type="button" class="like-button"><img src="./images/buttons/like_button.svg" alt="Кнопка Нравится" class= "like-button__image"></button>
+            <button type="button" class="button button_type_like"></button>
           </div>
         </li>
 
@@ -46,7 +45,7 @@
           <img src="./images/elements/ergaki.jpg" alt="Ергаки" class="elements__photo">
           <div class="elements__text-container">
             <h2 class="elements__title">Ергаки</h2>
-            <button type="button" class="like-button"><img src="./images/buttons/like_button.svg" alt="Кнопка Нравится" class= "like-button__image"></button>
+            <button type="button" class="button button_type_like"></button>
           </div>
         </li>
 
@@ -54,7 +53,7 @@
           <img src="./images/elements/kamchatka.jpg" alt="Камчатка" class="elements__photo">
           <div class="elements__text-container">
             <h2 class="elements__title">Камчатка</h2>
-            <button type="button" class="like-button"><img src="./images/buttons/like_button.svg" alt="Кнопка Нравится" class= "like-button__image"></button>
+            <button type="button" class="button button_type_like"></button>
           </div>
         </li>
 
@@ -62,7 +61,7 @@
           <img src="./images/elements/kizhi.jpg" alt="Кижи" class="elements__photo">
           <div class="elements__text-container">
             <h2 class="elements__title">Кижи</h2>
-            <button type="button" class="like-button"><img src="./images/buttons/like_button.svg" alt="Кнопка Нравится" class= "like-button__image"></button>
+            <button type="button" class="button button_type_like"></button>
           </div>
         </li>
 
@@ -70,7 +69,7 @@
           <img src="./images/elements/ural.jpg" alt="Урал" class="elements__photo">
           <div class="elements__text-container">
             <h2 class="elements__title">Уральские горы</h2>
-            <button type="button" class="like-button"><img src="./images/buttons/like_button.svg" alt="Кнопка Нравится" class= "like-button__image"></button>
+            <button type="button" class="button button_type_like"></button>
           </div>
         </li>
 
@@ -78,7 +77,7 @@
           <img src="./images/elements/volga.jpg" alt="Река Волга" class="elements__photo">
           <div class="elements__text-container">
             <h2 class="elements__title">Река Волга</h2>
-            <button type="button" class="like-button"><img src="./images/buttons/like_button.svg" alt="Кнопка Нравится" class= "like-button__image"></button>
+            <button type="button" class="button button_type_like"></button>
           </div>
         </li>
       </ul>
@@ -88,25 +87,26 @@
   </main>
 
   <footer class="footer">
-    <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
+    <p class="footer__copyright" lang="en">&#169; 2020 Mesto Russia</p>
   </footer>
 
-  <div class="edit-profile-popup">
+  <div class="popup">
 
-    <div class="edit-profile-popup__container">
+    <div class="popup__container">
 
-      <button class="exit-button"><img src="./images/buttons/exit_button.svg" alt="Закрыть" class="exit-button__image"></button>
+      <button class="button button_type_exit"></button>
 
-      <form class="edit-profile-popup__form">
-        <h2 class="edit-profile-popup__title">Редактировать профиль</h2>
-        <input type="text" class="edit-profile-popup__input" value="Жак-Ив Кусто" placeholder="Имя" id="nameInput">
-        <input type="text" class="edit-profile-popup__input" value="Исследователь океана" placeholder="Род деятельности" id="jobInput">
-        <button type="submit" class="edit-profile-popup__submit">Сохранить</button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+
+      <form class="popup__form" name="popupEditProfile">
+        <input type="text" class="popup__input popup__input_type_name" value="Жак-Ив Кусто" placeholder="Имя" name="popupInputName" required>
+        <input type="text" class="popup__input popup__input_type_job" value="Исследователь океана" placeholder="Род деятельности" name="popupInputJob" required>
+        <button type="submit" class="button button_type_submit">Сохранить</button>
       </form>
 
     </div>
 
   </div>
-<script src="./index.js"></script>
+<script src="./scripts/index.js" defer></script>
 </body>
 </html>

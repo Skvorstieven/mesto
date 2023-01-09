@@ -1,8 +1,9 @@
-.edit-profile-popup__submit {
+.button_type_submit {
   width: 358px;
   height: 50px;
   background: #000000;
   border-radius: 2px;
+  border: none;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -10,14 +11,19 @@
   line-height: 22px;
   text-align: center;
   color: #FFFFFF;
-  cursor: pointer;
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-  margin: 0 0 37px;
+  margin: 0;
   padding: 0;
 }
 
-.edit-profile-popup__submit:hover {
+.button_type_submit:hover {
   opacity: 0.8;
+}
+
+@media screen and (max-width: 580px) {
+  .button_type_submit {
+    width: 238px;
+    height: 46px;
+    font-size: 14px;
+    line-height: 17px;
+  }
 }

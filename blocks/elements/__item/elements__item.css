@@ -1,11 +1,9 @@
 .elements__item {
   width: 282px;
-  height: 361px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 0 0 26px ;
   border-radius: 10px;
   background-color: #ffffff;
-  overflow: hidden;
 }
