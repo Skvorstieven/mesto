@@ -25,7 +25,7 @@ function editProfile(event) {
 
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  console.log(profileJob.textContent);
+  closePopUp();
 }
 
 editProfileButton.addEventListener('click', openPopUp);
