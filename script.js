@@ -1,11 +1,10 @@
 let profile = document.querySelector('.profile');
 let editProfileButton = profile.querySelector('.edit-button');
-let profileName = profile.querySelector('.profile__title');
-let profileJob = profile.querySelector('.profile__subtitle');
 
 let editProfilePopUp = document.querySelector('.edit-profile-popup');
 let exitEditProfilePopUp = editProfilePopUp.querySelector('.exit-button');
 let submitEdit = editProfilePopUp.querySelector('.edit-profile-popup__submit');
+
 
 
 function openPopUp() {
@@ -16,12 +15,17 @@ function closePopUp() {
   editProfilePopUp.classList.remove('edit-profile-popup_opened');
 }
 
-function editProfile() {
-  let nameInput = document.querySelector('#nameInput');
-  let jobInput = document.querySelector('#jobInput');
+function editProfile(event) {
+  event.preventDefault();
 
-  profileName.innerHTML = nameInput.value;
-  profileJob.innerHTML = jobInput.value;
+  let profileName = profile.querySelector('.profile__title');
+  let profileJob = profile.querySelector('.profile__subtitle');
+  let nameInput = editProfilePopUp.querySelector('#nameInput');
+  let jobInput = editProfilePopUp.querySelector('#jobInput');
+
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = jobInput.value;
+  console.log(profileJob.textContent);
 }
 
 editProfileButton.addEventListener('click', openPopUp);

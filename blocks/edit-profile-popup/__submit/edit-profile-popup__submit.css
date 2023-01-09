@@ -3,7 +3,7 @@
   height: 50px;
   background: #000000;
   border-radius: 2px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -11,6 +11,8 @@
   text-align: center;
   color: #FFFFFF;
   cursor: pointer;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
   transition: all 0.5s;
   margin: 0 0 37px;
   padding: 0;

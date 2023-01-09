@@ -4,10 +4,14 @@
   border: 2px solid #FFFFFF;
   border-radius: 2px;
   background: none;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
   transition: all 0.5s;
   margin: 0;
   padding: 0;
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -18,7 +22,7 @@
 @media screen and (max-width: 879px) {
   .add-button {
     width: 581px;
-    margin-top: 36px;
+    margin-top: 33px;
   }
 }
 

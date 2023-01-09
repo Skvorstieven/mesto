@@ -4,6 +4,8 @@
   grid-template-areas:
   'avatar title edit-button'
   'avatar subtitle .';
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   row-gap: 16px;
 }
