@@ -4,9 +4,11 @@ let profileJob = profile.querySelector('.profile__subtitle');
 let editProfileButton = profile.querySelector('.button_type_edit');
 
 let editProfilePopUp = document.querySelector('.popup');
+let editProfileForm = editProfilePopUp.querySelector('.popup__form');
 let exitEditProfilePopUp = editProfilePopUp.querySelector('.button_type_exit');
 let nameInput = editProfilePopUp.querySelector('.popup__input_type_name');
 let jobInput = editProfilePopUp.querySelector('.popup__input_type_job');
+
 
 function openPopUp() {
   editProfilePopUp.classList.add('popup_opened');
@@ -21,18 +23,14 @@ function closePopUp() {
 function editProfile(event) {
   event.preventDefault();
 
-  if (nameInput.value === '' || jobInput.value === '') {
-    alert('Пожалуйста заполните обе графы');
-  } else {
-    profileName.textContent = nameInput.value;
-    profileJob.textContent = jobInput.value;
-    closePopUp();
-  }
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = jobInput.value;
+  closePopUp();
 }
 
 editProfileButton.addEventListener('click', openPopUp);
 
 exitEditProfilePopUp.addEventListener('click', closePopUp);
 
-editProfilePopUp.addEventListener('submit', editProfile);
+editProfileForm.addEventListener('submit', editProfile);
 

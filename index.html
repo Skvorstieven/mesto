@@ -18,18 +18,18 @@
 
   <main class="content">
 
-    <section class="profile">
+    <section aria-label="Профиль" class="profile">
       <div class="profile__info-container">
         <img src="./images/profile/kusto.jpg" alt="Аватар пользователя" class="profile__avatar">
         <h1 class="profile__title">Жак-Ив Кусто</h1>
-        <button type="button" class="button button_type_edit"></button>
+        <button aria-label="Редактировать профиль" type="button" class="button button_type_edit"></button>
         <p class="profile__subtitle">Исследователь океана</p>
       </div>
 
-      <button type="button" class="button button_type_add"></button>
+      <button aria-label="Добавить новую карточку" type="button" class="button button_type_add"></button>
     </section>
 
-    <section class="elements">
+    <section aria-label="Фотогаллерея" class="elements">
 
       <ul class="elements__items">
 
@@ -37,7 +37,7 @@
           <img src="./images/elements/elbrus.jpg" alt="Гора Эльбрус" class="elements__photo">
           <div class="elements__text-container">
             <h2 class="elements__title">Гора Эльбрус</h2>
-            <button type="button" class="button button_type_like"></button>
+            <button aria-label="Лайк" type="button" class="button button_type_like"></button>
           </div>
         </li>
 
@@ -45,7 +45,7 @@
           <img src="./images/elements/ergaki.jpg" alt="Ергаки" class="elements__photo">
           <div class="elements__text-container">
             <h2 class="elements__title">Ергаки</h2>
-            <button type="button" class="button button_type_like"></button>
+            <button aria-label="Лайк" type="button" class="button button_type_like"></button>
           </div>
         </li>
 
@@ -53,7 +53,7 @@
           <img src="./images/elements/kamchatka.jpg" alt="Камчатка" class="elements__photo">
           <div class="elements__text-container">
             <h2 class="elements__title">Камчатка</h2>
-            <button type="button" class="button button_type_like"></button>
+            <button aria-label="Лайк" type="button" class="button button_type_like"></button>
           </div>
         </li>
 
@@ -61,7 +61,7 @@
           <img src="./images/elements/kizhi.jpg" alt="Кижи" class="elements__photo">
           <div class="elements__text-container">
             <h2 class="elements__title">Кижи</h2>
-            <button type="button" class="button button_type_like"></button>
+            <button aria-label="Лайк" type="button" class="button button_type_like"></button>
           </div>
         </li>
 
@@ -69,7 +69,7 @@
           <img src="./images/elements/ural.jpg" alt="Урал" class="elements__photo">
           <div class="elements__text-container">
             <h2 class="elements__title">Уральские горы</h2>
-            <button type="button" class="button button_type_like"></button>
+            <button aria-label="Лайк" type="button" class="button button_type_like"></button>
           </div>
         </li>
 
@@ -77,7 +77,7 @@
           <img src="./images/elements/volga.jpg" alt="Река Волга" class="elements__photo">
           <div class="elements__text-container">
             <h2 class="elements__title">Река Волга</h2>
-            <button type="button" class="button button_type_like"></button>
+            <button aria-label="Лайк" type="button" class="button button_type_like"></button>
           </div>
         </li>
       </ul>
@@ -94,14 +94,14 @@
 
     <div class="popup__container">
 
-      <button class="button button_type_exit"></button>
+      <button aria-label="Закрыть редактирование профиля" type="button" class="button button_type_exit"></button>
 
       <h2 class="popup__title">Редактировать профиль</h2>
 
       <form class="popup__form" name="popupEditProfile">
         <input type="text" class="popup__input popup__input_type_name" value="Жак-Ив Кусто" placeholder="Имя" name="popupInputName" required>
         <input type="text" class="popup__input popup__input_type_job" value="Исследователь океана" placeholder="Род деятельности" name="popupInputJob" required>
-        <button type="submit" class="button button_type_submit">Сохранить</button>
+        <button aria-label="Сохранить изменения" type="submit" class="button button_type_submit">Сохранить</button>
       </form>
 
     </div>
