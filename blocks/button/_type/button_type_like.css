@@ -9,7 +9,7 @@
   display: -ms-flexbox;
   display: flex;
   background-image: url(../../../images/buttons/like_button.svg);
-  background-size: 22px 19px;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
