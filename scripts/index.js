@@ -39,18 +39,22 @@ const initialCards = [
   },
 ]
 
-
-
 //Функции
 
-function openPopUp() {
-  editProfilePopUp.classList.add('popup_opened');
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
+function openPopUp(popUp) {
+  popUp.classList.add('popup_opened');
 }
 
-function closePopUp() {
-  editProfilePopUp.classList.remove('popup_opened');
+function openPopUpHandler(popUp) {
+  return openPopUp(popUp);
+}
+
+function closePopUp(popUp) {
+  popUp.classList.remove('popup_opened');
+}
+
+function closePopUpHandler(popUp) {
+  return closePopUp(popUp);
 }
 
 function editProfile(event) {
@@ -75,8 +79,13 @@ initialCards.forEach(function(element) {
 
 //Кнопки
 
-editProfileButton.addEventListener('click', openPopUp);
+editProfileButton.addEventListener('click', function() {
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
 
-exitEditProfilePopUp.addEventListener('click', closePopUp);
+  openPopUpHandler(editProfilePopUp)
+});
+
+exitEditProfilePopUp.addEventListener('click', closePopUpHandler(editProfilePopUp));
 
 editProfileForm.addEventListener('submit', editProfile);
