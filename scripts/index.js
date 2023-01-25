@@ -76,6 +76,10 @@ initialCards.forEach(function(element) {
   elementsItem.querySelector('.elements__photo').alt = element.name;
   elementsItem.querySelector('.elements__title').textContent = element.name;
 
+  elementsItem.querySelector('.button_type_like').addEventListener('click', function(event){
+    event.target.classList.toggle('button_type_like-active');
+  });
+
   elementsItems.append(elementsItem);
 });
 
@@ -87,6 +91,10 @@ function addCard(event) {
   elementsItem.querySelector('.elements__photo').src = cardLinkInput.value;
   elementsItem.querySelector('.elements__photo').alt = cardNameInput.value;
   elementsItem.querySelector('.elements__title').textContent = cardNameInput.value;
+
+  elementsItem.querySelector('.button_type_like').addEventListener('click', function(event){
+    event.target.classList.toggle('button_type_like-active');
+  });
 
   elementsItems.prepend(elementsItem);
 
