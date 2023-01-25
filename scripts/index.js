@@ -81,10 +81,12 @@ initialCards.forEach(function(element) {
   });
 
   elementsItem.querySelector('.button_type_delete').addEventListener('click', function() {
-    elementsItem.remove();
+    elementsItem.classList.remove('elements__item_show');
+    setTimeout(() => {elementsItem.remove()}, 500);
   })
 
   elementsItems.append(elementsItem);
+  setTimeout(() => {elementsItem.classList.add('elements__item_show')});
 });
 
 function addCard(event) {
@@ -101,10 +103,12 @@ function addCard(event) {
   });
 
   elementsItem.querySelector('.button_type_delete').addEventListener('click', function() {
-    elementsItem.remove();
+    elementsItem.classList.remove('elements__item_show');
+    setTimeout(() => {elementsItem.remove()}, 500);
   })
 
   elementsItems.prepend(elementsItem);
+  setTimeout(() => {elementsItem.classList.add('elements__item_show')});
 
   cardNameInput.value = '';
   cardLinkInput.value = '';
