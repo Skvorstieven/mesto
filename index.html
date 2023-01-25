@@ -32,54 +32,6 @@
     <section aria-label="Фотогаллерея" class="elements">
 
       <ul class="elements__items">
-
-        <li class="elements__item">
-          <img src="./images/elements/elbrus.jpg" alt="Гора Эльбрус" class="elements__photo">
-          <div class="elements__text-container">
-            <h2 class="elements__title">Гора Эльбрус</h2>
-            <button aria-label="Лайк" type="button" class="button button_type_like"></button>
-          </div>
-        </li>
-
-        <li class="elements__item">
-          <img src="./images/elements/ergaki.jpg" alt="Ергаки" class="elements__photo">
-          <div class="elements__text-container">
-            <h2 class="elements__title">Ергаки</h2>
-            <button aria-label="Лайк" type="button" class="button button_type_like"></button>
-          </div>
-        </li>
-
-        <li class="elements__item">
-          <img src="./images/elements/kamchatka.jpg" alt="Камчатка" class="elements__photo">
-          <div class="elements__text-container">
-            <h2 class="elements__title">Камчатка</h2>
-            <button aria-label="Лайк" type="button" class="button button_type_like"></button>
-          </div>
-        </li>
-
-        <li class="elements__item">
-          <img src="./images/elements/kizhi.jpg" alt="Кижи" class="elements__photo">
-          <div class="elements__text-container">
-            <h2 class="elements__title">Кижи</h2>
-            <button aria-label="Лайк" type="button" class="button button_type_like"></button>
-          </div>
-        </li>
-
-        <li class="elements__item">
-          <img src="./images/elements/ural.jpg" alt="Урал" class="elements__photo">
-          <div class="elements__text-container">
-            <h2 class="elements__title">Уральские горы</h2>
-            <button aria-label="Лайк" type="button" class="button button_type_like"></button>
-          </div>
-        </li>
-
-        <li class="elements__item">
-          <img src="./images/elements/volga.jpg" alt="Река Волга" class="elements__photo">
-          <div class="elements__text-container">
-            <h2 class="elements__title">Река Волга</h2>
-            <button aria-label="Лайк" type="button" class="button button_type_like"></button>
-          </div>
-        </li>
       </ul>
 
     </section>
@@ -107,6 +59,17 @@
     </div>
 
   </div>
+
+  <template id="elementsItem-template">
+    <li class="elements__item">
+      <img src="" alt="" class="elements__photo">
+      <div class="elements__text-container">
+        <h2 class="elements__title"></h2>
+        <button aria-label="Лайк" type="button" class="button button_type_like"></button>
+      </div>
+    </li>
+  </template>
+
 <script src="./scripts/index.js" defer></script>
 </body>
 </html>
