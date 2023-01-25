@@ -8,5 +8,4 @@
   transition: height 0s 0s, opacity 0.5s 0s, -webkit-transform 0s 0s;
   -o-transition: height 0s 0s, transform 0s 0s, opacity 0.5s 0s;
   transition: height 0s 0s, transform 0s 0s, opacity 0.5s 0s;
-  transition: height 0s 0s, transform 0s 0s, opacity 0.5s 0s, -webkit-transform 0s 0s;
 }
