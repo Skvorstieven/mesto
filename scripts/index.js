@@ -7,7 +7,7 @@ const profileJob = profile.querySelector('.profile__subtitle');
 const editProfileButton = profile.querySelector('.button_type_edit');
 const editProfilePopUp = document.querySelector('#editProfilePopUp');
 const editProfileForm = editProfilePopUp.querySelector('.popup__form');
-const exitEditProfilePopUp = editProfilePopUp.querySelector('.button_type_exit');
+const editProfilePopUpExitButton = editProfilePopUp.querySelector('.button_type_exit');
 const nameInput = editProfilePopUp.querySelector('.popup__input_type_name');
 const jobInput = editProfilePopUp.querySelector('.popup__input_type_job');
 
@@ -42,14 +42,14 @@ const initialCards = [
 const elementsItemTemplate = document.querySelector('#elementsItem-template').content;
 const addCardButton = document.querySelector('.button_type_add');
 const addCardPopUp = document.querySelector('#addCardPopUp');
-const exitAddCardPopUp = addCardPopUp.querySelector('.button_type_exit');
+const addCardPopUpExitButton = addCardPopUp.querySelector('.button_type_exit');
 const cardNameInput = addCardPopUp.querySelector('.popup__input_type_name');
 const cardLinkInput = addCardPopUp.querySelector('.popup__input_type_link');
 const addCardForm = addCardPopUp.querySelector('.popup__form');
 
 //Фото
 const photoPopUp = document.querySelector('#photoPopUp');
-const exitPhotoPopUp = photoPopUp.querySelector('.button_type_exit');
+const PhotoPopUpExitButton = photoPopUp.querySelector('.button_type_exit');
 
 //ФУНКЦИИ
 
@@ -73,17 +73,17 @@ function editProfile(event) {
 };
 
 //Карточки
-initialCards.forEach(function(element) {
+function assembleCard(name, link) {
   const elementsItem = elementsItemTemplate.querySelector('.elements__item').cloneNode(true);
 
-  elementsItem.querySelector('.elements__photo').src = element.link;
-  elementsItem.querySelector('.elements__photo').alt = element.name;
-  elementsItem.querySelector('.elements__title').textContent = element.name;
+  elementsItem.querySelector('.elements__photo').src = link;
+  elementsItem.querySelector('.elements__photo').alt = name;
+  elementsItem.querySelector('.elements__title').textContent = name;
 
   elementsItem.querySelector('.elements__photo').addEventListener('click', function() {
-    photoPopUp.querySelector('.popup__photo').src = element.link;
-    photoPopUp.querySelector('.popup__photo').alt = element.name;
-    photoPopUp.querySelector('.popup__photo-title').textContent = element.name;
+    photoPopUp.querySelector('.popup__photo').src = link;
+    photoPopUp.querySelector('.popup__photo').alt = name;
+    photoPopUp.querySelector('.popup__photo-title').textContent = name;
     openPopUp(photoPopUp);
   })
 
@@ -94,41 +94,25 @@ initialCards.forEach(function(element) {
   elementsItem.querySelector('.button_type_delete').addEventListener('click', function() {
     elementsItem.classList.remove('elements__item_show');
     setTimeout(() => {elementsItem.remove()}, 500);
+
+
   })
 
-  elementsItems.append(elementsItem);
+  elementsItems.prepend(elementsItem);
   setTimeout(() => {elementsItem.classList.add('elements__item_show')});
+}
+
+initialCards.forEach(function(element) {
+  assembleCard(element.name, element.link);
 });
 
 function addCard(event) {
   event.preventDefault();
 
-  const elementsItem = elementsItemTemplate.querySelector('.elements__item').cloneNode(true);
   const cardLink = cardLinkInput.value;
   const cardName = cardNameInput.value;
 
-  elementsItem.querySelector('.elements__photo').src = cardLink;
-  elementsItem.querySelector('.elements__photo').alt = cardName;
-  elementsItem.querySelector('.elements__title').textContent = cardName;
-
-  elementsItem.querySelector('.elements__photo').addEventListener('click', function() {
-    photoPopUp.querySelector('.popup__photo').src = cardLink;
-    photoPopUp.querySelector('.popup__photo').alt = cardName;
-    photoPopUp.querySelector('.popup__photo-title').textContent = cardName;
-    openPopUp(photoPopUp);
-  })
-
-  elementsItem.querySelector('.button_type_like').addEventListener('click', function(event){
-    event.target.classList.toggle('button_type_like-active');
-  });
-
-  elementsItem.querySelector('.button_type_delete').addEventListener('click', function() {
-    elementsItem.classList.remove('elements__item_show');
-    setTimeout(() => {elementsItem.remove()}, 500);
-  })
-
-  elementsItems.prepend(elementsItem);
-  setTimeout(() => {elementsItem.classList.add('elements__item_show')});
+  assembleCard(cardName, cardLink);
 
   cardNameInput.value = '';
   cardLinkInput.value = '';
@@ -145,7 +129,7 @@ editProfileButton.addEventListener('click', function() {
   openPopUp(editProfilePopUp);
 });
 
-exitEditProfilePopUp.addEventListener('click', function() {
+editProfilePopUpExitButton.addEventListener('click', function() {
   closePopUp(editProfilePopUp);
 });
 
@@ -156,7 +140,7 @@ addCardButton.addEventListener('click', function() {
   openPopUp(addCardPopUp);
 });
 
-exitAddCardPopUp.addEventListener('click', function() {
+addCardPopUpExitButton.addEventListener('click', function() {
   closePopUp(addCardPopUp);
 });
 
@@ -164,6 +148,6 @@ addCardForm.addEventListener('submit', addCard);
 
 //Фото
 
-exitPhotoPopUp.addEventListener('click', function() {
+PhotoPopUpExitButton.addEventListener('click', function() {
   closePopUp(photoPopUp);
 })
