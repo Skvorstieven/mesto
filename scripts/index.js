@@ -76,9 +76,13 @@ initialCards.forEach(function(element) {
   elementsItem.querySelector('.elements__photo').alt = element.name;
   elementsItem.querySelector('.elements__title').textContent = element.name;
 
-  elementsItem.querySelector('.button_type_like').addEventListener('click', function(event){
+  elementsItem.querySelector('.button_type_like').addEventListener('click', function(event) {
     event.target.classList.toggle('button_type_like-active');
   });
+
+  elementsItem.querySelector('.button_type_delete').addEventListener('click', function() {
+    elementsItem.remove();
+  })
 
   elementsItems.append(elementsItem);
 });
@@ -95,6 +99,10 @@ function addCard(event) {
   elementsItem.querySelector('.button_type_like').addEventListener('click', function(event){
     event.target.classList.toggle('button_type_like-active');
   });
+
+  elementsItem.querySelector('.button_type_delete').addEventListener('click', function() {
+    elementsItem.remove();
+  })
 
   elementsItems.prepend(elementsItem);
 
