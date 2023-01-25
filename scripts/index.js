@@ -62,7 +62,7 @@ function editProfile(event) {
 
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  closePopUp();
+  closePopUp(editProfilePopUp);
 }
 
 initialCards.forEach(function(element) {
@@ -83,7 +83,7 @@ editProfileButton.addEventListener('click', function() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 
-  openPopUpHandler(editProfilePopUp)
+  openPopUpHandler(editProfilePopUp);
 });
 
 exitEditProfilePopUp.addEventListener('click', closePopUpHandler(editProfilePopUp));
