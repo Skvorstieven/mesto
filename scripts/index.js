@@ -47,6 +47,10 @@ const cardNameInput = addCardPopUp.querySelector('.popup__input_type_name');
 const cardLinkInput = addCardPopUp.querySelector('.popup__input_type_link');
 const addCardForm = addCardPopUp.querySelector('.popup__form');
 
+//Фото
+const photoPopUp = document.querySelector('#photoPopUp');
+const exitPhotoPopUp = photoPopUp.querySelector('.button_type_exit');
+
 //ФУНКЦИИ
 
 //Общие
@@ -76,6 +80,13 @@ initialCards.forEach(function(element) {
   elementsItem.querySelector('.elements__photo').alt = element.name;
   elementsItem.querySelector('.elements__title').textContent = element.name;
 
+  elementsItem.querySelector('.elements__photo').addEventListener('click', function() {
+    photoPopUp.querySelector('.popup__photo').src = element.link;
+    photoPopUp.querySelector('.popup__photo').alt = element.name;
+    photoPopUp.querySelector('.popup__photo-title').textContent = element.name;
+    openPopUp(photoPopUp);
+  })
+
   elementsItem.querySelector('.button_type_like').addEventListener('click', function(event) {
     event.target.classList.toggle('button_type_like-active');
   });
@@ -93,10 +104,19 @@ function addCard(event) {
   event.preventDefault();
 
   const elementsItem = elementsItemTemplate.querySelector('.elements__item').cloneNode(true);
+  const cardLink = cardLinkInput.value;
+  const cardName = cardNameInput.value;
 
-  elementsItem.querySelector('.elements__photo').src = cardLinkInput.value;
-  elementsItem.querySelector('.elements__photo').alt = cardNameInput.value;
-  elementsItem.querySelector('.elements__title').textContent = cardNameInput.value;
+  elementsItem.querySelector('.elements__photo').src = cardLink;
+  elementsItem.querySelector('.elements__photo').alt = cardName;
+  elementsItem.querySelector('.elements__title').textContent = cardName;
+
+  elementsItem.querySelector('.elements__photo').addEventListener('click', function() {
+    photoPopUp.querySelector('.popup__photo').src = cardLink;
+    photoPopUp.querySelector('.popup__photo').alt = cardName;
+    photoPopUp.querySelector('.popup__photo-title').textContent = cardName;
+    openPopUp(photoPopUp);
+  })
 
   elementsItem.querySelector('.button_type_like').addEventListener('click', function(event){
     event.target.classList.toggle('button_type_like-active');
@@ -141,3 +161,9 @@ exitAddCardPopUp.addEventListener('click', function() {
 });
 
 addCardForm.addEventListener('submit', addCard);
+
+//Фото
+
+exitPhotoPopUp.addEventListener('click', function() {
+  closePopUp(photoPopUp);
+})
