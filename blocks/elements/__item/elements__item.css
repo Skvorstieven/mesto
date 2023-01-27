@@ -7,8 +7,4 @@
   border-radius: 10px;
   background-color: #ffffff;
   position: relative;
-  opacity: 0;
-  -webkit-transition: all 1s;
-  -o-transition: all 1s;
-  transition: all 1s;
 }

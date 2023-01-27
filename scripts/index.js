@@ -62,7 +62,6 @@ function assembleCard(name, link) {
     photoPopUpImage.src = link;
     photoPopUpImage.alt = name;
     photoPopUpTitle.textContent = name;
-    photoPopUp.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
     openPopUp(photoPopUp);
   })
 
@@ -71,8 +70,7 @@ function assembleCard(name, link) {
   });
 
   cardsItem.querySelector('.button_type_delete').addEventListener('click', function() {
-    cardsItem.classList.remove('elements__item_show');
-    setTimeout(() => {cardsItem.remove()}, 500);
+    cardsItem.remove()
   });
 
   return cardsItem;
@@ -80,9 +78,7 @@ function assembleCard(name, link) {
 
 function addCard(title, link) {
   const card = assembleCard(title, link);
-
   cardsList.prepend(card);
-  setTimeout(() => {card.classList.add('elements__item_show')});
 }
 
 initialCards.forEach(function(element) {
