@@ -6,10 +6,10 @@ const profileName = profile.querySelector('.profile__title');
 const profileJob = profile.querySelector('.profile__subtitle');
 const profileEditButton = profile.querySelector('.button_type_edit');
 const profileEditPopUp = document.querySelector('#profileEditPopUp');
-const profileEditForm = profileEditPopUp.querySelector('.popup__form');
 const profileEditPopUpExitButton = profileEditPopUp.querySelector('.button_type_exit');
-const profileEditNameInput = profileEditPopUp.querySelector('.popup__input_type_name');
-const profileEditJobInput = profileEditPopUp.querySelector('.popup__input_type_job');
+const profileEditForm = document.forms.popupEditProfile
+const profileEditNameInput = document.forms.popupEditProfile.popupInputName;
+const profileEditJobInput = document.forms.popupEditProfile.popupInputJob;
 
 //Карточки
 const cardsList = document.querySelector('.elements__items');
@@ -17,9 +17,9 @@ const cardsTemplate = document.querySelector('#cardsItem-template').content;
 const cardsAddNewButton = document.querySelector('.button_type_add');
 const cardsAddNewPopUp = document.querySelector('#cardsAddNewPopUp');
 const cardsAddNewPopUpExitButton = cardsAddNewPopUp.querySelector('.button_type_exit');
-const cardsTitleInput = cardsAddNewPopUp.querySelector('.popup__input_type_name');
-const cardsLinkInput = cardsAddNewPopUp.querySelector('.popup__input_type_link');
-const cardsAddNewForm = cardsAddNewPopUp.querySelector('.popup__form');
+const cardsAddNewForm = document.forms.popupAddCard;
+const cardsTitleInput = document.forms.popupAddCard.popupInputName;
+const cardsLinkInput = document.forms.popupAddCard.popupInputJob;
 
 //Фото
 const photoPopUp = document.querySelector('#photoPopUp');
