@@ -97,6 +97,10 @@ function addNewCard(event) {
   closePopUp(cardsAddNewPopUp);
 };
 
+//Валидация форм
+
+
+
 //КНОПКИ
 
 //Редактирование профиля

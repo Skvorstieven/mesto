@@ -52,7 +52,9 @@
 
       <form class="popup__form" name="popupEditProfile" novalidate>
         <input type="text" class="popup__input" value="Жак-Ив Кусто" placeholder="Имя" name="popupInputName" minlength="2" mlength="40" required>
+        <span class="popup__input-error"></span>
         <input type="text" class="popup__input" value="Исследователь океана" placeholder="Ссылка на картинку" name="popupInputJob" minlength="2" mlength="200" required>
+        <span class="popup__input-error"></span>
         <button aria-label="Сохранить изменения" type="submit" class="button button_type_submit">Сохранить</button>
       </form>
 
@@ -70,7 +72,9 @@
 
       <form class="popup__form" name="popupAddCard" novalidate>
         <input type="text" class="popup__input" placeholder="Название" name="popupInputName" minlength="2" maxlength="30" required>
+        <span class="popup__input-error"></span>
         <input type="url" class="popup__input" placeholder="Ссылка на картинку" name="popupInputJob" required>
+        <span class="popup__input-error"></span>
         <button aria-label="Сохранить изменения" type="submit" class="button button_type_submit">Создать</button>
       </form>
 
