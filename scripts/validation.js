@@ -1,17 +1,14 @@
-//Переменные
-const formList = Array.from(document.forms);
+//Запустить валидацию форм
+function enableValidation(validationSettings) {
 
-//Отменить отправку формы по умолчанию
-function preventDefaultForm() {
-  formList.forEach(() => {
-    addEventListener('submit', (evt) => {
+  const formList = Array.from(document.forms);
+
+  formList.forEach((formElement) => {
+    formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     })
   })
-}
 
-//Запустить валидацию форм
-function enableValidation(validationSettings) {
 formList.forEach((formElement) => {
   setEventListeners(formElement, validationSettings);
 })
@@ -74,5 +71,4 @@ function toggleButtonState (inputList, buttonElement, validationSettings) {
   }
 }
 
-preventDefaultForm();
 enableValidation(validationConst);
