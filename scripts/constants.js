@@ -24,3 +24,13 @@ const initialCards = [
     link:'./images/elements/volga.jpg'
   },
 ];
+
+const validationConst = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.button_type_submit',
+  errorElementSelector: '.popup__input-error_type_',
+  inactiveButtonClass: 'button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_active'
+}

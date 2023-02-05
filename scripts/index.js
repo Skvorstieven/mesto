@@ -6,7 +6,6 @@ const profileName = profile.querySelector('.profile__title');
 const profileJob = profile.querySelector('.profile__subtitle');
 const profileEditButton = profile.querySelector('.button_type_edit');
 const profileEditPopUp = document.querySelector('#profileEditPopUp');
-const profileEditPopUpExitButton = profileEditPopUp.querySelector('.button_type_exit');
 const profileEditForm = document.forms.popupEditProfile
 const profileEditNameInput = document.forms.popupEditProfile.popupInputName;
 const profileEditJobInput = document.forms.popupEditProfile.popupInputJob;
@@ -17,7 +16,6 @@ const cardsList = document.querySelector('.elements__items');
 const cardsTemplate = document.querySelector('#cardsItem-template').content;
 const cardsAddNewButton = document.querySelector('.button_type_add');
 const cardsAddNewPopUp = document.querySelector('#cardsAddNewPopUp');
-const cardsAddNewPopUpExitButton = cardsAddNewPopUp.querySelector('.button_type_exit');
 const cardsAddNewForm = document.forms.popupAddCard;
 const cardsTitleInput = document.forms.popupAddCard.popupInputName;
 const cardsLinkInput = document.forms.popupAddCard.popupInputImage;
@@ -27,7 +25,6 @@ const cardsAddNewFormContainer = cardsAddNewPopUp.querySelector('.popup__form-co
 const photoPopUp = document.querySelector('#photoPopUp');
 const photoPopUpImage = photoPopUp.querySelector('.popup__photo');
 const photoPopUpTitle = photoPopUp.querySelector('.popup__photo-title');
-const photoPopUpExitButton = photoPopUp.querySelector('.button_type_exit');
 const photoPopUpContainer = photoPopUp.querySelector('.popup__form-container');
 
 //ФУНКЦИИ
@@ -35,10 +32,17 @@ const photoPopUpContainer = photoPopUp.querySelector('.popup__form-container');
 //Общие
 function openPopUp(popUp) {
   popUp.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopUpOnEscPress);
+  popUp.addEventListener('mousedown', closePopUpOnClickOutside);
+  popUp.querySelector('.button_type_exit').addEventListener('click', () => {
+    closePopUp(popUp);
+  });
 };
 
 function closePopUp(popUp) {
   popUp.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopUpOnEscPress);
+  popUp.removeEventListener('mousedown', closePopUpOnClickOutside);
 };
 
 function closePopUpOnEscPress(evt) {
@@ -114,7 +118,7 @@ function addNewCard() {
 
 //Общие
 
-document.addEventListener('keydown', closePopUpOnEscPress);
+
 
 //Редактирование профиля
 profileEditButton.addEventListener('click', () => {
@@ -123,12 +127,6 @@ profileEditButton.addEventListener('click', () => {
 
   openPopUp(profileEditPopUp);
 });
-
-profileEditPopUpExitButton.addEventListener('click', () => {
-  closePopUp(profileEditPopUp);
-});
-
-profileEditPopUp.addEventListener('click', closePopUpOnClickOutside);
 
 profileEditForm.addEventListener('submit', () => {
   if(!profileEditForm.querySelector('.button_type_submit').hasAttribute('disabled')) {
@@ -141,22 +139,9 @@ cardsAddNewButton.addEventListener('click', () => {
   openPopUp(cardsAddNewPopUp);
 });
 
-cardsAddNewPopUpExitButton.addEventListener('click', () => {
-  closePopUp(cardsAddNewPopUp);
-});
-
 cardsAddNewForm.addEventListener('submit', () => {
   if(!cardsAddNewForm.querySelector('.button_type_submit').hasAttribute('disabled')) {
     addNewCard();
   }
 });
 
-cardsAddNewPopUp.addEventListener('click', closePopUpOnClickOutside);
-
-//Фото
-
-photoPopUpExitButton.addEventListener('click', () => {
-  closePopUp(photoPopUp);
-});
-
-photoPopUp.addEventListener('click', closePopUpOnClickOutside);

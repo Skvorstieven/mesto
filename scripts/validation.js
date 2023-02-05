@@ -11,46 +11,47 @@ function preventDefaultForm() {
 }
 
 //Запустить валидацию форм
-function enableValidation() {
+function enableValidation(validationSettings) {
 formList.forEach((formElement) => {
-  setEventListeners(formElement);
+  setEventListeners(formElement, validationSettings);
 })
 }
 
 //Добавить обработчики событий к полям ввода
-function setEventListeners(formElement) {
-  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
-  const buttonElement = formElement.querySelector('.button_type_submit');
+function setEventListeners(formElement, validationSettings) {
+  const inputList = Array.from(formElement.querySelectorAll(validationSettings.inputSelector));
+  const buttonElement = formElement.querySelector(validationSettings.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, validationSettings);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
-      checkInputValidity(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
+      checkInputValidity(formElement, inputElement, validationSettings);
+      toggleButtonState(inputList, buttonElement, validationSettings);
     });
   });
 };
 
 //Валидировать элемент ввода
-function checkInputValidity(formElement, inputElement) {
+function checkInputValidity(formElement, inputElement, validationSettings) {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(formElement, inputElement, inputElement.validationMessage, validationSettings);
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, validationSettings);
   };
 };
 
 //Показать сообщение об ошибке
-function showInputError(formElement, inputElement, errorMessage) {
-  const errorElement = formElement.querySelector(`.popup__input-error_type_${inputElement.name}`);
-  inputElement.classList.add('popup__input_type_error');
-  errorElement.classList.add('popup__input-error_active');
+function showInputError(formElement, inputElement, errorMessage, validationSettings) {
+  const errorElement = formElement.querySelector(`${validationSettings.errorElementSelector}${inputElement.name}`);
+  inputElement.classList.add(validationSettings.inputErrorClass);
+  errorElement.classList.add(validationSettings.errorClass);
   errorElement.textContent = errorMessage;
 }
 
 //Спрятать сообщение об ошибке
-function hideInputError(formElement, inputElement) {
-  const errorElement = formElement.querySelector(`.popup__input-error_type_${inputElement.name}`);
-  inputElement.classList.remove('popup__input_type_error');
-  errorElement.classList.remove('popup__input-error_active');
+function hideInputError(formElement, inputElement, validationSettings) {
+  const errorElement = formElement.querySelector(`${validationSettings.errorElementSelector}${inputElement.name}`);
+  inputElement.classList.remove(validationSettings.inputErrorClass);
+  errorElement.classList.remove(validationSettings.errorClass);
   errorElement.textContent = '';
 }
 
@@ -63,15 +64,15 @@ function hasInvalidInput(inputList) {
 
 
 //Сменить состояние кнопки отправления в зависимости от валидации формы
-function toggleButtonState (inputList, buttonElement) {
+function toggleButtonState (inputList, buttonElement, validationSettings) {
   if(hasInvalidInput(inputList)) {
-    buttonElement.classList.add('button_disabled');
+    buttonElement.classList.add(validationSettings.inactiveButtonClass);
     buttonElement.setAttribute('disabled', '');
   } else {
-    buttonElement.classList.remove('button_disabled');
+    buttonElement.classList.remove(validationSettings.inactiveButtonClass);
     buttonElement.removeAttribute('disabled', '');
   }
 }
 
 preventDefaultForm();
-enableValidation();
+enableValidation(validationConst);
