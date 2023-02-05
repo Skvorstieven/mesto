@@ -76,9 +76,10 @@ function resetForm(popUp, validationSettings) {
   const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
   const buttonElement = formElement.querySelector(validationSettings.submitButtonSelector);
 
+  toggleButtonState(inputList, buttonElement, validationSettings);
+
   inputList.forEach((inputElement) => {
     hideInputError(formElement, inputElement, validationSettings);
-    toggleButtonState (inputList, buttonElement, validationSettings);
   });
 
   formElement.reset();
