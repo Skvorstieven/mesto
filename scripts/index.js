@@ -40,7 +40,6 @@ function openPopUp(popUp) {
 function closePopUp(popUp) {
   popUp.classList.remove('popup_opened');
   removeFormEventListeners(popUp);
-  resetForm(popUp, validationConst);
 };
 
 function closePopUpOnExitButton() {
@@ -70,20 +69,6 @@ function removeFormEventListeners(popUp) {
   popUp.removeEventListener('mousedown', closePopUpOnClickOutside);
   popUp.querySelector('.button_type_exit').removeEventListener('click', closePopUpOnExitButton);
 };
-
-function resetForm(popUp, validationSettings) {
-  const formElement = popUp.querySelector('.popup__form');
-  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
-  const buttonElement = formElement.querySelector(validationSettings.submitButtonSelector);
-
-  toggleButtonState(inputList, buttonElement, validationSettings);
-
-  inputList.forEach((inputElement) => {
-    hideInputError(formElement, inputElement, validationSettings);
-  });
-
-  formElement.reset();
-}
 
 //Редактирование профиля
 function editProfile() {
@@ -146,10 +131,11 @@ function addNewCard() {
 
 //Редактирование профиля
 profileEditButton.addEventListener('click', () => {
+  resetForm(profileEditPopUp, validationConst);
   profileEditNameInput.value = profileName.textContent;
   profileEditJobInput.value = profileJob.textContent;
-
   openPopUp(profileEditPopUp);
+
 });
 
 profileEditForm.addEventListener('submit', () => {
@@ -160,6 +146,7 @@ profileEditForm.addEventListener('submit', () => {
 
 //Добавление новой карточки
 cardsAddNewButton.addEventListener('click', () => {
+  resetForm(cardsAddNewPopUp, validationConst);
   openPopUp(cardsAddNewPopUp);
 });
 

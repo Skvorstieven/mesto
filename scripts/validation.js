@@ -6,13 +6,11 @@ function enableValidation(validationSettings) {
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
-    })
-  })
+    });
 
-formList.forEach((formElement) => {
-  setEventListeners(formElement, validationSettings);
-})
-}
+    setEventListeners(formElement, validationSettings);
+  });
+};
 
 //Добавить обработчики событий к полям ввода
 function setEventListeners(formElement, validationSettings) {
@@ -69,6 +67,21 @@ function toggleButtonState (inputList, buttonElement, validationSettings) {
     buttonElement.classList.remove(validationSettings.inactiveButtonClass);
     buttonElement.removeAttribute('disabled', '');
   }
+}
+
+//Сбросить состояние формы
+function resetForm(popUp, validationSettings) {
+  const formElement = popUp.querySelector('.popup__form');
+  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
+  const buttonElement = formElement.querySelector(validationSettings.submitButtonSelector);
+
+  toggleButtonState(inputList, buttonElement, validationSettings);
+
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement, validationSettings);
+  });
+
+  formElement.reset();
 }
 
 enableValidation(validationConst);
