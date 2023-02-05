@@ -32,14 +32,15 @@ const photoPopUpContainer = photoPopUp.querySelector('.popup__form-container');
 //Общие
 function openPopUp(popUp) {
   popUp.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopUpOnEscPress, {once: true});
+  document.addEventListener('keydown', closePopUpOnEscPress);
   popUp.addEventListener('mousedown', closePopUpOnClickOutside, {once: true});
   popUp.querySelector('.button_type_exit').addEventListener('click', () => {
-    closePopUp(popUp)}, {once: true});
+    closePopUp(popUp)}, {once: true}); //Once: true - удаляет обработчик после выполнения
 };
 
 function closePopUp(popUp) {
   popUp.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopUpOnEscPress);
 };
 
 function closePopUpOnEscPress(evt) {
