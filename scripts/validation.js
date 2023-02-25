@@ -1,3 +1,5 @@
+import {validationConst} from './constants.js';
+
 //Запустить валидацию форм
 function enableValidation(validationSettings) {
 
@@ -85,3 +87,5 @@ function resetForm(popUp, validationSettings) {
 }
 
 enableValidation(validationConst);
+
+export {enableValidation, resetForm};
