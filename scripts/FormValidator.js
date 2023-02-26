@@ -9,14 +9,13 @@ class FormValidator {
   //Добавить обработчики событий к полям ввода
   _setEventListeners() {
 
-    this._toggleButtonState();
-
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
         this._toggleButtonState();
        });
     });
+
   };
 
   //Валидировать элемент ввода
@@ -27,33 +26,41 @@ class FormValidator {
     } else {
       this._hideInputError(inputElement);
     };
+
   };
 
   //Показать сообщение об ошибке
   _showInputError(inputElement, errorMessage) {
+
     const errorElement = this._formElement.querySelector(`${this._validationSettings.errorElementSelector}${inputElement.name}`);
     inputElement.classList.add(this._validationSettings.inputErrorClass);
     errorElement.classList.add(this._validationSettings.errorClass);
     errorElement.textContent = errorMessage;
+
   }
 
   //Спрятать сообщение об ошибке
   _hideInputError(inputElement) {
+
     const errorElement = this._formElement.querySelector(`${this._validationSettings.errorElementSelector}${inputElement.name}`);
     inputElement.classList.remove(this._validationSettings.inputErrorClass);
     errorElement.classList.remove(this._validationSettings.errorClass);
     errorElement.textContent = '';
+
   }
 
   //Валидировать форму
   _hasInvalidInput() {
+
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
+
   };
 
   //Сменить состояние кнопки отправления в зависимости от валидации формы
   _toggleButtonState() {
+
     if(this._hasInvalidInput()) {
       this._buttonElement.classList.add(this._validationSettings.inactiveButtonClass);
       this._buttonElement.setAttribute('disabled', '');
@@ -61,10 +68,11 @@ class FormValidator {
       this._buttonElement.classList.remove(this._validationSettings.inactiveButtonClass);
       this._buttonElement.removeAttribute('disabled', '');
     }
+
   }
 
   //Сбросить состояние формы
-  resetForm() {
+  resetFormErrors() {
 
     this._toggleButtonState();
 
@@ -72,17 +80,14 @@ class FormValidator {
       this._hideInputError(inputElement);
     });
 
-    this._formElement.reset();
   }
 
   //Запустить валидацию форм
   enableValidation() {
 
-    this._formElement.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-    });
-
+    this._toggleButtonState();
     this._setEventListeners();
+
   };
 }
 
