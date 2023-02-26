@@ -6,9 +6,6 @@
   margin: 0 18px 0 0;
   padding: 0;
   grid-area: title;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   align-self: end;
   max-width: 510px;
   -o-text-overflow: ellipsis;
