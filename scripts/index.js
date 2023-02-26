@@ -1,7 +1,7 @@
-//ОБЪЯВЛЕНИЕ ПЕРЕМЕННЫХ
+//ИМПОРТ И ОБЪЯВЛЕНИЕ ПЕРЕМЕННЫХ
 import {initialCards, validationConst} from './constants.js';
 import {Card} from './Card.js';
-import {enableValidation, resetForm} from './validation.js';
+import {FormValidator} from './FormValidator.js';
 
 //Редактирование профиля
 const profile = document.querySelector('.profile');
@@ -23,20 +23,17 @@ const cardsTitleInput = document.forms.popupAddCard.popupInputName;
 const cardsLinkInput = document.forms.popupAddCard.popupInputImage;
 const cardsSubmitButton = document.forms.popupAddCard.popupSubmit;
 
-//Фото
-
-
 //ФУНКЦИИ
 
 //Общие
-function openPopUp(popUp) {
+export function openPopUp(popUp) {
   popUp.classList.add('popup_opened');
-  addFormEventListeners(popUp);
+  addPopUpEventListeners(popUp);
 };
 
 function closePopUp(popUp) {
   popUp.classList.remove('popup_opened');
-  removeFormEventListeners(popUp);
+  removePopUpEventListeners(popUp);
 };
 
 function closePopUpOnExitButton() {
@@ -55,13 +52,13 @@ function closePopUpOnClickOutside(evt) {
   };
 };
 
-function addFormEventListeners(popUp) {
+function addPopUpEventListeners(popUp) {
   document.addEventListener('keydown', closePopUpOnEscPress);
   popUp.addEventListener('mousedown', closePopUpOnClickOutside);
   popUp.querySelector('.button_type_exit').addEventListener('click', closePopUpOnExitButton);
 };
 
-function removeFormEventListeners(popUp) {
+function removePopUpEventListeners(popUp) {
   document.removeEventListener('keydown', closePopUpOnEscPress);
   popUp.removeEventListener('mousedown', closePopUpOnClickOutside);
   popUp.querySelector('.button_type_exit').removeEventListener('click', closePopUpOnExitButton);
@@ -104,7 +101,9 @@ function addNewCard() {
 
 //Редактирование профиля
 profileEditButton.addEventListener('click', () => {
-  resetForm(profileEditPopUp, validationConst);
+  const form = new FormValidator(validationConst, profileEditForm);
+  form.enableValidation();
+  form.resetForm();
   profileEditNameInput.value = profileName.textContent;
   profileEditJobInput.value = profileJob.textContent;
   openPopUp(profileEditPopUp);
@@ -119,7 +118,9 @@ profileEditForm.addEventListener('submit', () => {
 
 //Добавление новой карточки
 cardsAddNewButton.addEventListener('click', () => {
-  resetForm(cardsAddNewPopUp, validationConst);
+  const form = new FormValidator(validationConst, cardsAddNewForm);
+  form.enableValidation();
+  form.resetForm();
   openPopUp(cardsAddNewPopUp);
 });
 
@@ -128,4 +129,3 @@ cardsAddNewForm.addEventListener('submit', () => {
     addNewCard();
   }
 });
-

@@ -2,6 +2,8 @@ const photoPopUp = document.querySelector('#photoPopUp');
 const photoPopUpImage = photoPopUp.querySelector('.popup__photo');
 const photoPopUpTitle = photoPopUp.querySelector('.popup__photo-title');
 
+import { openPopUp } from "./index.js";
+
 export class Card {
   constructor(data, templateSelector) {
     this._title = data.title;
@@ -14,6 +16,23 @@ export class Card {
     return cardsTemplate;
   }
 
+  _addEventListeners(item) {
+    item.querySelector('.elements__photo').addEventListener('click', () => {
+      photoPopUpImage.src = this._link;
+      photoPopUpImage.alt = this._title;
+      photoPopUpTitle.textContent = this._title;
+      openPopUp(photoPopUp);
+    });
+
+    item.querySelector('.button_type_like').addEventListener('click', evt => {
+      evt.target.classList.toggle('button_type_like-active');
+    });
+
+    item.querySelector('.button_type_delete').addEventListener('click', () => {
+      item.remove();
+    });
+  }
+
   assembleCard() {
     const cardsItem = this._getTemplate();
     const cardsItemPhoto = cardsItem.querySelector('.elements__photo');
@@ -23,20 +42,7 @@ export class Card {
     cardsItemPhoto.alt = this._title;
     cardsItemTitle.textContent = this._title;
 
-    cardsItem.querySelector('.elements__photo').addEventListener('click', () => {
-      photoPopUpImage.src = this._link;
-      photoPopUpImage.alt = this._title;
-      photoPopUpTitle.textContent = this._title;
-      openPopUp(photoPopUp);
-    });
-
-    cardsItem.querySelector('.button_type_like').addEventListener('click', evt => {
-      evt.target.classList.toggle('button_type_like-active');
-    });
-
-    cardsItem.querySelector('.button_type_delete').addEventListener('click', () => {
-      cardsItem.remove();
-    });
+    this._addEventListeners(cardsItem);
 
     return cardsItem;
   };
