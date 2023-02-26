@@ -1,26 +1,26 @@
 const initialCards = [
   {
-    name:'Гора Эльбрус',
+    title:'Гора Эльбрус',
     link:'./images/elements/elbrus.jpg'
   },
   {
-    name:'Ергаки',
+    title:'Ергаки',
     link:'./images/elements/ergaki.jpg'
   },
   {
-    name:'Камчатка',
+    title:'Камчатка',
     link:'./images/elements/kamchatka.jpg'
   },
   {
-    name:'Кижи',
+    title:'Кижи',
     link:'./images/elements/kizhi.jpg'
   },
   {
-    name:'Урал',
+    title:'Урал',
     link:'./images/elements/ural.jpg'
   },
   {
-    name:'Река Волга',
+    title:'Река Волга',
     link:'./images/elements/volga.jpg'
   },
 ];
@@ -34,3 +34,5 @@ const validationConst = {
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__input-error_active'
 }
+
+export {initialCards, validationConst};
