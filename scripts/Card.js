@@ -11,18 +11,23 @@ export class Card {
     return cardsTemplate;
   }
 
+  _toggleLikeButton() {
+    this.cardsItemLikeButton.classList.toggle('button_type_like-active');
+    console.log(this.cardsItemLikeButton);
+  }
+
+  _removeCard() {
+    this.cardsItem.remove();
+  }
+
   _addEventListeners() {
     this.cardsItemPhoto.addEventListener('click', () => {
       this._photoPopUpHandler(this._title, this._link);
     });
 
-    this.cardsItemLikeButton.addEventListener('click', () => {
-      this.cardsItemLikeButton.classList.toggle('button_type_like-active');
-    });
+    this.cardsItemLikeButton.addEventListener('click', () => {this._toggleLikeButton()});
 
-    this.cardsItemDeleteButton.addEventListener('click', () => {
-      this.cardsItem.remove();
-    });
+    this.cardsItemDeleteButton.addEventListener('click', () => {this._removeCard()});
   }
 
   assembleCard() {
