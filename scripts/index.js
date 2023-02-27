@@ -128,9 +128,9 @@ popUps.forEach((popUp) => {
 
 //Редактирование профиля
 profileEditButton.addEventListener('click', () => {
-  profileEditFormValidator.resetFormErrors();
   profileEditNameInput.value = profileName.textContent;
   profileEditJobInput.value = profileJob.textContent;
+  profileEditFormValidator.resetFormErrors();
   openPopUp(profileEditPopUp);
 });
 
